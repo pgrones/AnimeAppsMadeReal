@@ -1,0 +1,15 @@
+---
+import { getLinkPreview } from "link-preview-js";
+
+export interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+
+const data = await getLinkPreview(url);
+---
+
+<a href={url} target="_blank" rel="nooopener noreferrer" >
+    <img src={data?.hasOwnProperty('images') ? (data as {images: string[]}).images[0] : null} width="100%" height="auto" class="rounded" />
+</a> 

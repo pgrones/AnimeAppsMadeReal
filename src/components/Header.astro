@@ -1,0 +1,27 @@
+---
+import ThemeToggle from './ThemeToggle.tsx';
+---
+
+<script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+
+    let prevScrollpos = window.pageYOffset;
+    window.addEventListener('scroll', function(e) {
+        const currentScrollPos = e.target.scrollTop;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("header").style.transform = "translateY(0)";
+        } else {
+            document.getElementById("header").style.transform = "translateY(-4rem)";
+        }
+        prevScrollpos = currentScrollPos;
+    }, true);
+</script>
+<header id="header" class="bg-slate-100 dark:bg-gray-900 dark:bg-opacity-60 bg-opacity-60 flex flex-row justify-between px-6 md:px-40 xl:px-72 2xl:px-96 py-4 absolute top-0 left-0 right-[10px] transition-transform">
+    <h1 class="text-xl">Anime Apps Made Real</h1>
+    <ThemeToggle client:load />
+</header>
