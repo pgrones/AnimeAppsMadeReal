@@ -1,3 +1,5 @@
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,4 +20,13 @@
 
 ::-webkit-scrollbar-track {
     background: transparent;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(6px);
+    }
 }

@@ -1,8 +1,7 @@
 ---
-import '@fortawesome/fontawesome-free/css/solid.css';
-import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import Header from '../components/Header.astro';
-import LinkPreview from '../components/LinkPreview.astro';
+import Header from '../components/common/Header.astro';
+import LinkPreview from '../components/common/LinkPreview.astro';
+import YuukiYuunaMessenger from '../components/yuukiYuunaMessenger/YuukiYuunaMessenger.tsx';
 ---
 <html lang="en">
 <head>
@@ -23,17 +22,28 @@ import LinkPreview from '../components/LinkPreview.astro';
 			document.documentElement.classList.remove('dark');
 		}
 	</script>
+	<style>
+	:global(.bottom-img) {
+		mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,1),rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), rgba(0,0,0,0));
+    }
+	:global(.text-outline){
+		text-shadow: -1px -1px 0 #3E4F56, 1px -1px 0 #3E4F56, -1px 1px 0 #3E4F56, 1px 1px 0 #3E4F56;
+    }
+	:global(.fairy) {
+		animation: bounce 1s ease-in-out 0s infinite alternate;
+    }
+    </style>
 </head>
-<body class="font-['Nunito'] bg-gradient-to-l from-slate-50 to-slate-300 dark:from-slate-900 dark:to-slate-700 text-gray-900 dark:text-slate-100 h-screen overflow-hidden">	
+<body class="font-['Nunito'] bg-slate-200 dark:bg-slate-800 text-black dark:text-slate-100 h-screen overflow-hidden">	
 	<Header/>
 	<main id="main" class="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-40 xl:px-72 2xl:px-96 pt-20 pb-4 gap-20 h-full overflow-auto">
-		<div class="flex justify-center align-items-center rounded p-3 dark:bg-slate-900 bg-slate-50">
-			<!-- <img src="https://media0.giphy.com/media/DHt7C9vXEetYMmU1jP/giphy.gif" />	 -->
+		<div class="flex justify-center align-items-center rounded -mx-6 md:mx-0 p-0 md:p-3 dark:bg-slate-900 bg-slate-50">
+			<YuukiYuunaMessenger client:load />
 		</div>
-		<div class="flex flex-col justify-between items-stretch min-h-[945px]">
+		<div class="flex flex-col justify-between items-stretch text-justify">
 			<LinkPreview url="https://anilist.co/anime/20800/" /> 
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.			
-			<img src="https://github.com/pgr3931/Yuuki-Yuuna-Messenger/raw/main/scene.gif" height="auto" width="100%" />			
+			<img class="rounded" src="https://github.com/pgr3931/Yuuki-Yuuna-Messenger/raw/main/scene.gif" height="auto" width="100%" />			
 		</div>
 	</main>
 </body>

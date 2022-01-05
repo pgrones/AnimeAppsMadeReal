@@ -10,6 +10,6 @@ const { url } = Astro.props;
 const data = await getLinkPreview(url);
 ---
 
-<a href={url} target="_blank" rel="nooopener noreferrer" >
+<a href={url} target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
     <img src={data?.hasOwnProperty('images') ? (data as {images: string[]}).images[0] : null} width="100%" height="auto" class="rounded" />
 </a> 

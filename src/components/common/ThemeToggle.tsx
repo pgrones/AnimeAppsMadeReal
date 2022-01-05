@@ -8,12 +8,12 @@ const ThemeToggle = () => {
     }, [])
 
     return (
-        <button onClick={() => {
+        <button className='hover:scale-[1.2] active:scale-100 transition-transform text-xl' onClick={() => {
             const isDark = document.documentElement.classList.toggle('dark');
             localStorage.theme = isDark ? 'dark' : undefined;
             setDark(prev => !prev);
         }}>
-            <i className={`text dark:text-white ${dark ? 'fas fa-sun' : 'fas fa-moon'}`}></i>
+            <i className={dark ? 'fas fa-sun' : 'fas fa-moon'}></i>
         </button>
     );
 };
