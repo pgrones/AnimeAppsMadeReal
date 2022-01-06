@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "serve": "serve -s dist"
   },
   "devDependencies": {
     "@astrojs/renderer-react": "^0.4.0",
