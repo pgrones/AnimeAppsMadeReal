@@ -1,6 +1,6 @@
 @import './solid.min.css';
+@import './brands.min.css';
 @import './fontawesome.min.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,13 +10,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(170, 173, 181);
-    border-radius: 10px;
+    background: rgba(139, 92, 246, .5);
+    border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(136, 137, 138);
-    border-radius: 10px;
+    background: rgba(139, 92, 246, 1);
 }
 
 ::-webkit-scrollbar-track {
@@ -27,7 +26,8 @@
     0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(6px);
     }
 }

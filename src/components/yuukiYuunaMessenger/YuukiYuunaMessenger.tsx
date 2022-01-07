@@ -22,15 +22,16 @@ const YuukiYuunaMessenger = () => {
             const prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
             copy.push({ text: lines, fairy: selected, lines: lines.length, prevWidth: prevWidth });
             setMessages(copy);
+            setInputText('');
         }
     }
 
     return (
-        <div className="relative min-h-[calc(100vh_-_120px)] h-full w-full bg-contain rounded bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
+        <div className="relative min-h-[calc(100vh_-_120px)] h-full w-full bg-cover bg-no-repeat rounded bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
             <div className="absolute h-full w-full">
                 <Messages messages={messages} />
             </div>
-            <div className="bottom-img absolute h-full w-full bg-contain rounded bg-[url(/assets/yuukiYuunaMessenger/background.webp)] bg-clip-content pt-[100%]" />
+            <div className="bottom-img absolute h-full w-full bg-cover rounded bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)] bg-clip-content pt-[100%]" />
             <div className="absolute bottom-0 h-2/5 w-full">
                 <div className="h-full w-full flex flex-row justify-around items-center">
                     {Array.from(fairyMap).map((v) =>

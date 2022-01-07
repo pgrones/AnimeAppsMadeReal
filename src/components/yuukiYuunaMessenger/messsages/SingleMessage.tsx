@@ -7,7 +7,7 @@ const SingleMessage: React.FC<{ index: number, text: string[], fairy: fairyNames
     // Radius of the arc from 0,0 - offset by prevWidth so that the arcs don't overlap
     const radius = 205.5 + prevWidth + width / 2;
     // Calculate the d of the path according to the variables above
-    const arc = describeArc(0, 0, radius, 88, 180 - ((width) / 2) / radius / (Math.PI / 180));
+    const arc = describeArc(0, 0, radius, 0, 180 - ((width + 2) / 2) / radius / (Math.PI / 180));
     // Start coordinates of the path (arc) that are used as coordinates for the circle at the start of the arc
     const arcStart = arc.split(' ').slice(1, 3);
     // Colors for each path
