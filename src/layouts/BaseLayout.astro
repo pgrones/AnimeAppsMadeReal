@@ -13,7 +13,7 @@ const {title, description} = Astro.props;
 	<link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
     <style>   
         .bg-img {
             box-shadow: inset 0 0 80px 60px rgb(241, 245, 249, 1);   
@@ -24,11 +24,11 @@ const {title, description} = Astro.props;
     </style>
     <slot name="head" />
 </head>
-<body class="font-['Inter'] bg-slate-100 dark:bg-slate-900 text-black dark:text-slate-100 h-screen overflow-hidden">	
+<body class="font-['Inter'] bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-300 h-screen overflow-hidden">	
 	<Header/>
-    <main class="relative pt-[53px] h-full">
+    <main class="relative h-full">
         <div class="fixed bg-slate-100 dark:bg-slate-900 h-full w-full">
-            <div class="h-full w-full bg-img bg-cover bg-[url(/assets/background.jpg)] opacity-[0.25]"/>
+            <div class="h-full w-full bg-img bg-cover bg-[url(/assets/light-background.webp)] dark:bg-[url(/assets/background.webp)] opacity-[0.25]"/>
         </div>  
 	    <slot name="content" />
     </main> 

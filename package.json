@@ -17,7 +17,6 @@
     "tailwindcss": "^3.0.9"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
     "link-preview-js": "^2.1.8"
   }
 }

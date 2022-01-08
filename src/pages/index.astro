@@ -3,35 +3,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="AniApps">	
-    <div slot="content" class="relative mx-auto px-5 max-w-7xl pt-20 pb-4 h-full overflow-auto flex flex-col justify-between items-center">
-        <div class="flex flex-col items-center">
-            <div class="font-bold text-5xl text-center leading-tight">
-                Ever wondered what Apps and Technology
-                from Anime would look like in real life?           
+    <style>
+        div:hover>.arrow {
+            transform: translateX(100%);
+        }
+    </style>
+    <div slot="content" class="relative pt-32 h-full overflow-auto">
+        <div class="mx-auto px-5 max-w-7xl min-h-full flex flex-col justify-between items-center">
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-3xl sm:text-4xl lg:text-5xl text-black dark:text-slate-100 text-center leading-tight">
+                    Ever wondered what Apps and Technology
+                    from Anime would look like in real life?           
+                </span>
+                <span class="text-xl text-center pt-8 max-w-3xl">
+                    AniApps features proofs of concept for various apps, websites and other
+                    technologies seen in anime, manga or japanese pop culture
+                </span>
             </div>
-            <div class="font-normal text-xl text-center text-slate-900 dark:text-slate-300 pt-8 max-w-3xl">
-                AniApps features proofs of concept for various apps, websites and other
-                technologies seen in anime, manga or japanese pop culture
+            <div class="mt-10 px-0 md:px-32 lg:p-0 grid gap-20 grid-cols-1 lg:grid-cols-2 w-full">
+                <div class="bg-slate-100/50 dark:bg-slate-900/60 rounded-lg grid grid-cols-[35%_auto] xs:grid-cols-[25%_auto] md:grid-cols-[35%_auto] lg:grid-cols-[50%_auto]">
+                    <div class="self-center">
+                        <img class="rounded-lg" src="/assets/yuukiYuunaMessenger/messenger.webp" alt="Yuuki Yuuna Mesenger">
+                    </div>
+                    <div class="px-2 xs:px-4 py-2 flex flex-col justify-between items-start">
+                        <div class="flex flex-col">
+                            <a class="font-semibold text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
+                                Yuki Yuna is a Hero
+                            </a>
+                            <span class="text-sm xs:text-base md:text-lg font-medium">Text Messenger App</span>
+                        </div>
+                         <span class="hidden xs:block text-sm sm:text-base">
+                            Yuna and her friends often communicate with this mobile app.<br/>            
+                        </span>
+                        <span class="hidden xs:block text-sm sm:text-base">
+                            Want to be part of the hero club's conversations?<br/>               
+                        </span>
+                        <div class="w-full">     
+                            <div class="flex items-center">                 
+                                <a class="font-semibold text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500" href="/yuuki-yuuna-messenger">
+                                    Check it out 
+                                </a>
+                                <i class="arrow transition-transform flex-grow pl-1 xs:mr-6 font-semibold text-xl text-transparent bg-clip-text dark:bg-violet-500 bg-blue-500 fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="bg-slate-100/50 dark:bg-slate-900/50 flex justify-center items-center text-lg rounded-lg min-h-[100px]">
+                    Coming soon
+                </span>
             </div>
-        </div>
-        <div class="mt-20 grid gap-20 grid-cols-1 md:grid-cols-2 w-full flex-grow overflow-hidden">
-            <div class="w-full h-100 bg-slate-100/50 dark:bg-slate-900/50 rounded-lg min-h-[390px]">
-                <div class="bg-[url(/assets/yuukiYuunaMessenger/messenger.webp)] bg-contain bg-no-repeat bg-[left_center] h-full w-1/2" />
+            <div class="flex flex-col">
+                <span class="text-xl text-center mt-10 mb-1">
+                    Want to see something from your favorite anime made in real life?             
+                </span>
+                <span class="text-xl text-center mb-5">
+                    Send me a message on 
+                    <a class="underline underline-offset-2" href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
+                        AniList
+                    </a> 
+                    or via 
+                    <a class="underline underline-offset-2" href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
+                        e-mail
+                    </a>
+                </span>
             </div>
-            <div class="w-full h-100 bg-slate-100/50 dark:bg-slate-900/50 flex justify-center items-center text-lg rounded-lg min-h-[390px]">
-                Coming soon
-            </div>
-        </div>
-        <div class="font-normal text-xl text-center text-slate-900 dark:text-slate-300 mt-20">
-            Want to see something from your favorite anime made in real life?<br/>
-            Send me a message on 
-            <a class="underline underline-offset-2" href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
-                AniList
-            </a> 
-            or via 
-            <a class="underline underline-offset-2" href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
-                e-mail
-            </a>
         </div>
     </div>
 </BaseLayout>
