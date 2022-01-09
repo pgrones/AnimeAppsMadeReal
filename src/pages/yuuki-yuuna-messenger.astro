@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap">
 	<style slot="head" >
 		:global(.bottom-img) {
-			mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,1),rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), rgba(0,0,0,0));
+			mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
 		}
 		:global(.text-outline){
 			text-shadow: -1px -1px 0 #3E4F56, 1px -1px 0 #3E4F56, -1px 1px 0 #3E4F56, 1px 1px 0 #3E4F56;
@@ -20,14 +20,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			animation: bounce 1s ease-in-out 0s infinite alternate;
 		}
 	</style>
-	<div slot="content" class="relative mx-auto px-5 py-4 max-w-7xl h-full overflow-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-		<div class="flex justify-center align-items-center md:rounded -mx-6 md:mx-0 p-0 md:p-3 dark:bg-slate-900/50 bg-slate-50">
+	
+	<div slot="content" class="relative pt-12 lg:pt-16 pb-4 h-full overflow-auto">
+		<div class="mx-auto px-0 sm:px-5 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-20">
 			<YuukiYuunaMessenger client:idle />
-		</div>
-		<div class="flex flex-col justify-between items-stretch text-justify">
-			<LinkPreview url="https://anilist.co/anime/20800/" /> 
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.			
-			<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded" height="auto" width="100%" alt="anime source" autoplay loop muted />
+			<div class="flex flex-col justify-between items-stretch text-justify"> 
+				<LinkPreview url="https://anilist.co/anime/20800/" /> 
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.			
+				<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded-lg" height="auto" width="100%" alt="anime source" autoplay loop muted />
+			</div>
 		</div>
 	</div>
 </BaseLayout>

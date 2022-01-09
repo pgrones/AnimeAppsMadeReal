@@ -1,0 +1,51 @@
+[
+    {
+        "text": [
+            "あんたも登録しておいてね。",
+            "今日みたいに連絡の行き違いが無いよ。"
+        ],
+        "fairy": "inugami",
+        "lines": 2,
+        "prevWidth": 0,
+        "index": 0
+    },
+    {
+        "text": [
+            "これから仲良くしてくださいね。",
+            "よろしくお願いします。"
+        ],
+        "fairy": "kodama",
+        "lines": 2,
+        "prevWidth": 37.5,
+        "index": 1
+    },
+    {
+        "text": [
+            "次こそはぼた餅食べてくださいね。",
+            "有無は言わせない。"
+        ],
+        "fairy": "aobozu",
+        "lines": 2,
+        "prevWidth": 75,
+        "index": 2
+    },
+    {
+        "text": [
+            "ハーピーバースデー夏凛ちゃん！",
+            "学校のや部活のことでわからないことがあったらなんでも聞いてね。"
+        ],
+        "fairy": "gyuki",
+        "lines": 2,
+        "prevWidth": 112.5,
+        "index": 3
+    },
+    {
+        "text": [
+            "了解"
+        ],
+        "fairy": "yoshiteru",
+        "lines": 1,
+        "prevWidth": 150,
+        "index": 4
+    }
+]
