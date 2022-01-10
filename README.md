@@ -1,4 +1,4 @@
-# <img src="public/assets/logo.webp" width="30" height="30" /> [AniApps]()
+# <img src="public/assets/logo.webp" width="30" height="30" /> [AniApps](https://www.aniapps.dev)
 
 ### Ever wondered what Apps and Technology from Anime would look like in real life?
 
