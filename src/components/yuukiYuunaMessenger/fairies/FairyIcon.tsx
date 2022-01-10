@@ -8,6 +8,7 @@ const FairyIcon: React.FC<{ fairyName: fairyNames; fairySettings: fairySettings;
     const active = selected === fairyName;
 
     useEffect(() => {
+        // Set a random delay for the animation on mount
         setDalay(-Math.random() + 's');
     }, [])
 

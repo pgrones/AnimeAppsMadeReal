@@ -1,14 +1,14 @@
 import { useRef, useEffect } from "react";
 
 export const useAnimationFrame = (duration: number, delay: number, callback: (deltaTime: number) => void) => {
-    // Request ID from requestAnimationFrame()
+    // Request ID of requestAnimationFrame()
     const requestRef = useRef<number>();
     // Start Time of the animation
     const startTimeRef = useRef<number>();
     // Time of the previous animationframe
     const previousTimeRef = useRef<number>(0);
 
-    // animate() is called recursivly until the duration is over
+    // animate() is called recursively until the duration is over
     const animate = (time: number) => {
         // Set the start time...
         if (startTimeRef.current === undefined) {

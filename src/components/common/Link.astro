@@ -1,0 +1,15 @@
+---
+export interface Props {
+    className?: string;
+    href: string;
+    title?: string;
+    target?: string
+    rel?: string;
+}
+
+const { className, href, target, title, rel } = Astro.props;
+---
+
+<a href={href} title={title} target={target} rel={rel} class={`text-transparent bg-clip-text bg-gradient-to-br dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500${className ? ` ${className}` : ''}`}>
+    <slot/>
+</a>

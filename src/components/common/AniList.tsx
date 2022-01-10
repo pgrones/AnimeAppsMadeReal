@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-const AniList = () => {
+const AniListButton = () => {
     const [dark, setDark] = useState<boolean>(false);
 
     useEffect(() => {
         setDark(localStorage.theme === 'dark');
+        // Listen to changes of the theme and update the state accordingly
         new MutationObserver(mutationsList => {
             mutationsList.forEach(mutation => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     setDark((mutation.target as HTMLElement).classList.contains('dark'));
                 }
             });
-        }).observe(
-            document.documentElement,
-            { attributes: true }
-        )
+        }).observe(document.documentElement,{ attributes: true });
     }, [])
 
     return (
@@ -32,4 +30,4 @@ const AniList = () => {
     );
 };
 
-export default AniList;
+export default AniListButton;

@@ -32,7 +32,7 @@ const YuukiYuunaMessenger = () => {
             let prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
             // Split the inputText into lines
             let lines = splitString(inputText, (/^[a-z\s\d]*$/i.test(inputText) ? 35 : 18) + copy.length * 2 + (copy.length % 2));
-            // Remove any empty lines at the beginning...
+            // Remove all empty lines at the beginning...
             while (!lines[0].trim()) lines.shift();
             // ...and end
             while (!lines[-1].trim()) lines.pop();
@@ -47,7 +47,7 @@ const YuukiYuunaMessenger = () => {
                 while (width > 280) {
                     // If there aren't any old messages left
                     if (!copy.length) {
-                        // Remove the first line of the new messages and all following empty lines
+                        // Remove the first line of the new message and all following empty lines
                         lines.shift();
                         while (!lines[0].trim()) lines.shift();
                         // At this point there are no previous messages left

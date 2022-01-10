@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Link from '../components/common/Link.astro';
 ---
 
 <BaseLayout title="AniApps">	
@@ -25,9 +26,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <img class="self-center rounded-lg" src="/assets/yuukiYuunaMessenger/messenger.webp" alt="Yuuki Yuuna Mesenger" height="100%" width="100%">                 
                     <div class="px-2 xs:px-4 py-2 flex flex-col justify-between items-start">
                         <div class="flex flex-col">
-                            <a class="font-semibold text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
+                            <Link className="font-semibold text-lg md:text-2xl" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
                                 Yuki Yuna is a Hero
-                            </a>
+                            </Link>
                             <span class="text-sm xs:text-base md:text-lg font-medium">Text Messenger App</span>
                         </div>
                          <span class="hidden xs:block text-sm sm:text-base">
@@ -38,10 +39,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         </span>
                         <div class="w-full">     
                             <div class="flex items-center">                 
-                                <a class="font-semibold text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500" href="/yuuki-yuuna-messenger">
+                                <Link className="font-semibold text-xl md:text-2xl" href="/yuuki-yuuna-messenger">
                                     Check it out 
-                                </a>
-                                <i class="arrow transition-transform flex-grow pl-1 xs:mr-6 font-semibold text-xl text-transparent bg-clip-text dark:bg-violet-500 bg-blue-500 fas fa-arrow-right"></i>
+                                </Link>
+                                <i class="arrow transition-transform flex-grow pl-1 xs:mr-6 font-semibold text-xl dark:text-violet-500 text-blue-500 fas fa-arrow-right"></i>
                             </div>
                         </div>
                     </div>
@@ -60,7 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         AniList
                     </a> 
                     or via 
-                    <a class="underline underline-offset-2" href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
+                    <a class="underline underline-offset-2" href="mailto:animeappsmadereal@gmail.com">
                         e-mail
                     </a>
                 </span>
