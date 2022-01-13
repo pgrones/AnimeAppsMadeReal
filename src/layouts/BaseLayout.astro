@@ -28,7 +28,7 @@ const {title, description} = Astro.props;
 <body class="font-['Inter'] bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-300 h-screen overflow-hidden">	
 	<Header/>
     <main class="relative h-full">
-        <div class="fixed bg-slate-100 dark:bg-slate-900 h-full w-full">
+        <div class="fixed h-full w-full">
             <div class="h-full w-full bg-img bg-cover bg-[url(/assets/light-background.webp)] dark:bg-[url(/assets/background.webp)] opacity-[0.25]"/>
         </div>  
 	    <slot name="content" />

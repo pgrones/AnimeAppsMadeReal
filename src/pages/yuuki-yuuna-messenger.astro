@@ -1,6 +1,9 @@
 ---
 import YuukiYuunaMessenger from '../components/yuukiYuunaMessenger/YuukiYuunaMessenger.tsx';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Tabs from '../components/common/Tabs.tsx';
+import Link from '../components/common/Link.astro';
+import {Code} from 'astro/components'
 ---
 
 <BaseLayout title="Yuuki Yuuna Messenger" description="The messenger mobile app used in the anime Yuki Yuna is a Hero. Made with React and SVGs." >
@@ -17,15 +20,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 	</style>
 	
-	<div slot="content" class="relative pt-14 lg:pt-[calc(45px_+_1rem)] pb-4 h-full overflow-auto">
+	<div slot="content" class="relative pt-14 lg:pt-[calc(50px_+_1rem)] pb-4 h-full overflow-auto">
 		<div class="mx-auto px-0 sm:px-5 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-20">
 			<YuukiYuunaMessenger client:idle />
-			<div class="flex flex-col justify-between items-stretch text-justify">  
-				<a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
-    				<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
-				</a> 
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nam repellendus illo sunt, nisi ducimus provident ad molestiae maxime. Ducimus aperiam minima praesentium ipsam veniam perferendis nulla expedita accusantium aliquam.
-				<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded-lg" height="auto" width="100%" alt="anime source" autoplay loop muted />
+			<div class="flex flex-col items-stretch text-justify">  
+				<div class="flex items-end justify-between px-4 py-2 bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+					<Link className="font-semibold text-lg md:text-2xl" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
+						Yuki Yuna is a Hero
+					</Link>
+					<span class="text-sm xs:text-base md:text-lg font-medium">Text Messenger App</span>
+				</div>
+				<Tabs tabs={['Inspiration', 'Messenger', 'Yuki Yuna', 'Challenges']} client:idle />
+				<div id="tab0" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+					<span class="p-4">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nam repellendus illo sunt, nisi ducimus provident ad molestiae maxime. Ducimus aperiam minima praesentium ipsam veniam perferendis nulla expedita accusantium aliquam.
+					</span>
+					<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded-lg" height="auto" width="100%" alt="anime source" autoplay loop muted />
+				</div>
+				<div id="tab1" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+					<!-- <a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
+						<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
+					</a>  -->
+					<span class="px-4">
+						Lorem ipsum dol</span>
+				</div>
+				<div id="tab2" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+					<!-- <a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
+						<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
+					</a>  -->
+					<span class="px-4">
+						Voluptatem nam repellendus illo sunt, nisi ducimus provident ad molestiae maxime. Ducimus aperiam minima praesentium ipsam veniam perferendis nulla expedita accusantium aliquam.
+					</span>
+				</div>
+				<div id="tab3" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+					<Code code="const foo = 'bar';" lang="js" theme="dark-plus" />
+				</div>
 			</div>
 		</div>
 	</div>
