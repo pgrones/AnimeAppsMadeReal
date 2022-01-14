@@ -33,9 +33,9 @@ const YuukiYuunaMessenger = () => {
             // Split the inputText into lines
             let lines = splitString(inputText, (/^[a-z\s\d]*$/i.test(inputText) ? 35 : 18) + copy.length * 2 + (copy.length % 2));
             // Remove all empty lines at the beginning...
-            while (!lines[0].trim()) lines.shift();
+            while (lines[0]?.trim() === '') lines.shift();
             // ...and end
-            while (!lines[-1].trim()) lines.pop();
+            while (lines[-1]?.trim() === '') lines.pop();
             // Calculate the width including the new message
             let width = prevWidth + 9.5 + 14 * lines.length;
 

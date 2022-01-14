@@ -7,19 +7,40 @@
 
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, .5);
+    background: rgb(59, 130, 246, .5);
     border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 1);
+    background: rgba(59, 130, 246, 1); 
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(188, 82, 200, .5);
+    border-radius: 0.5rem;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(188, 82, 200, 1);
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.astro-code {
+    border-radius: 0.5rem;
+    padding: 4px;
+    font-size: medium;
+    line-height: 1.2rem;
 }
 
 @keyframes bounce {

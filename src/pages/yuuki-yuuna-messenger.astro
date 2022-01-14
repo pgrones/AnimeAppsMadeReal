@@ -3,10 +3,10 @@ import YuukiYuunaMessenger from '../components/yuukiYuunaMessenger/YuukiYuunaMes
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Tabs from '../components/common/Tabs.tsx';
 import Link from '../components/common/Link.astro';
-import {Code} from 'astro/components'
+import { Code } from 'astro/components'
 ---
 
-<BaseLayout title="Yuuki Yuuna Messenger" description="The messenger mobile app used in the anime Yuki Yuna is a Hero. Made with React and SVGs." >
+<BaseLayout title="AniApps - Yuuki Yuuna Messenger" description="The messenger mobile app used in the anime Yuuki Yuuna is a Hero. Made with React and SVGs." >
 	<link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap">
 	<style slot="head" >
 		:global(.text-outline){
@@ -18,42 +18,169 @@ import {Code} from 'astro/components'
 		:global(.fairy) {
 			animation: bounce 1s ease-in-out 0s infinite alternate;
 		}
+		div:hover>.arrow {
+            transform: translateX(100%);
+        }
 	</style>
 	
-	<div slot="content" class="relative pt-14 lg:pt-[calc(50px_+_1rem)] pb-4 h-full overflow-auto">
-		<div class="mx-auto px-0 sm:px-5 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-20">
+	<div slot="content" class="relative pt-14 lg:pt-[calc(48px_+_1rem)] h-full overflow-auto">
+		<div class="mx-auto px-0 sm:px-5 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-0">
 			<YuukiYuunaMessenger client:idle />
-			<div class="flex flex-col items-stretch text-justify">  
-				<div class="flex items-end justify-between px-4 py-2 bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
+			<div class="flex flex-col items-stretch pt-5 lg:pt-0">  
+				<div class="flex items-center justify-between px-4 py-1 bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
 					<Link className="font-semibold text-lg md:text-2xl" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
-						Yuki Yuna is a Hero
+						Yuuki Yuuna is a Hero
 					</Link>
 					<span class="text-sm xs:text-base md:text-lg font-medium">Text Messenger App</span>
 				</div>
-				<Tabs tabs={['Inspiration', 'Messenger', 'Yuki Yuna', 'Challenges']} client:idle />
-				<div id="tab0" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
-					<span class="p-4">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nam repellendus illo sunt, nisi ducimus provident ad molestiae maxime. Ducimus aperiam minima praesentium ipsam veniam perferendis nulla expedita accusantium aliquam.
-					</span>
-					<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded-lg" height="auto" width="100%" alt="anime source" autoplay loop muted />
-				</div>
-				<div id="tab1" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
-					<!-- <a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
-						<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
-					</a>  -->
-					<span class="px-4">
-						Lorem ipsum dol</span>
-				</div>
-				<div id="tab2" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
-					<!-- <a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" class="hover:scale-[1.03] active:scale-[0.97] transition-transform" >
-						<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
-					</a>  -->
-					<span class="px-4">
-						Voluptatem nam repellendus illo sunt, nisi ducimus provident ad molestiae maxime. Ducimus aperiam minima praesentium ipsam veniam perferendis nulla expedita accusantium aliquam.
-					</span>
-				</div>
-				<div id="tab3" class="pt-2 flex-grow flex flex-col justify-between bg-slate-100/50 dark:bg-slate-900/60 rounded-lg">
-					<Code code="const foo = 'bar';" lang="js" theme="dark-plus" />
+				<Tabs tabs={['Inspiration', 'Messenger', 'Yuuki Yuuna', 'Some Code']} client:idle />
+				<div class="bg-slate-100/50 dark:bg-slate-900/60 rounded-lg flex flex-grow overflow-hidden">
+					<div id="tab0" class="h-full min-w-full flex flex-col justify-between transition-transform duration-300 lg:max-h-[calc(100vh_-_10.75rem)]">
+						<span class="px-4 py-3">
+							I've loved Yuuki Yuuna ever since I first watched the series in 2014. 
+							<br/>
+							Back then, I had no idea how to make websites, let alone something as complex as the messenger they use.
+							<br/>Still, I can fondly remember being amazed by it because at the time I didn't even have a proper smartphone 
+							and had no idea that mobile apps could look like this.
+							<br/><br/>
+							Fast forward to 2021. I just started rewatching the series for the third time in anticipation of the third season when I saw that messenger again.
+							By then, I was out of university and thought to myself: "I might actually be able to make this now!". 
+							<br/><br/>
+							The first attempt was an actual mobile app that I cobbled together in two days. As a result, the code is super ugly, but 
+							<a class="underline underline-offset-2" href="https://github.com/pgr3931/Yuuki-Yuuna-Messenger" target="_blank" rel="noopener noreferrer">
+								it's on Github
+							</a>
+							if you want to take a look.
+							<br/><br/>
+							For this website, I completely redid the whole messenger and I feel like the code is actually properly done this time around.
+						</span>
+						<video src="/assets/yuukiYuunaMessenger/Reference.webm" class="rounded-lg" height="auto" width="100%" alt="anime source" controls autoplay loop muted />
+					</div>
+					<div id="tab1" class="h-full min-w-full flex flex-col transition-transform duration-300 p-4 lg:max-h-[calc(100vh_-_10.75rem)]">
+						<span class="text-xl font-medium pb-4">What can you do with this messenger?</span>
+						<span>
+							As this is just a proof of concept, you can't actually text anyone with it. Sorry! If there is demand, I might actually implement that, though.
+							<br/><br/>
+							What you can do, however, is the following:
+							<ul class="list-disc pl-4 pb-4">
+								<li class="pt-2">Type any text into the input field at the bottom of the messenger and hit either enter or the send button on the right</li>
+								<li class="pt-2">If you want your message to appear in a different color, simply click on one of the fairies</li>
+							</ul>
+							And that's it, really. It's just a simple messenger, so I hope you didn't expect too much from it.
+						</span>
+					</div>
+					<div id="tab2" class="h-full min-w-full flex flex-col justify-between transition-transform duration-300 lg:max-h-[calc(100vh_-_10.75rem)]">	
+						<div class="p-4 flex flex-col">						
+							<span class="text-xl font-medium pb-4">Plot Summary</span>
+							<span>
+								Yuuna Yuuki is an ordinary second-year middle school student. She gets up in the morning, gets ready for school, goes to classes, 
+								participates in club activities, and has fun with her friends. But there is one extraordinary thing about Yuuki — 
+								she belongs to the “Brave Hero Club”. What does the Brave Hero Club do? Who are these mysterious beings called “Vertex”? 
+								Yuuki Yuuna and her friends' story takes place in Year 300, Era of the Gods.			
+							</span>
+							<span class="text-sm pt-2">(Source: Ponycanyon USA)</span>
+						</div>
+						<div>
+							<div class="w-full p-4">     
+								<div class="flex items-center">                 
+									<Link className="font-semibold text-xl md:text-2xl" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
+										Check out the series on AniList
+									</Link>
+									<i class="arrow transition-transform flex-grow pl-2 xs:mr-6 font-semibold text-xl dark:text-violet-500 text-blue-500 fas fa-arrow-right"></i>
+								</div>
+							</div>
+							<a href="https://anilist.co/anime/20800/" target="_blank" rel="nooopener noreferrer" >
+								<img src="https://img.anili.st/media/20800" width="100%" height="auto" class="rounded-lg" alt="link preview" />
+							</a>
+						</div>
+					</div>
+					<div id="tab3" class="h-full min-w-full flex flex-col p-4 transition-transform duration-300 overflow-y-auto lg:max-h-[calc(100vh_-_10.75rem)]">
+						<span class="pb-4">This is gonna be a lot of programming talk, so you can click away if you don't care about that stuff!</span>
+						<span class="pb-4">
+							Coding this messenger really wasn't as simple as it might seem. I had to learn a lot about SVGs and animations 
+							to make it look as faithful to the source material as possible.			
+						</span>
+						<div class="w-full border-b-[1px] border-slate-300 dark:border-slate-700" />
+						<span class="text-lg font-medium py-4"><span class="font-mono inline-block">requestAnimationFrame()</span> to the rescue</span>
+						<span>
+							At first, I used classic SVG animations with a stroke-array and -offset to move the messages. This worked, but only until I realized that there
+							is a line connecting each message with the corresponding fairy. 
+							<br/><br/>
+							As far as I (and Stackoverflow) know, there is no way to move the end of a line
+							along a path while keeping the start static using a stroke-array. 
+							<br/><br/>
+							This led to me implementing a custom React hook that utilizes 
+							<div class="font-mono inline-block">requestAnimationFrame()</div>	
+							to animate the line together with the path.
+							<br/><br/>
+							The only issue with this approach is that the performance suffers a lot when sending long messages.
+						</span>
+						<details class="py-4">
+							<summary class="cursor-pointer">The custom React hook</summary>
+							<Code lang="js" theme="github-dark" code={`const useAnimationFrame = (duration: number, delay: number, callback: (deltaTime: number) => void) => {
+    // Request ID of requestAnimationFrame()
+    const requestRef = useRef<number>();
+    // Start Time of the animation
+    const startTimeRef = useRef<number>();
+    // Time of the previous animationframe
+    const previousTimeRef = useRef<number>(0);
+
+    // animate() is called recursively until the duration is over
+    const animate = (time: number) => {
+        // Set the start time...
+        if (startTimeRef.current === undefined) {
+            startTimeRef.current = time;
+        }
+
+        // ...to calculate the elapsed time
+        const elapsed = time - startTimeRef.current;
+
+        // Do the animation if there is a new frame
+        if (previousTimeRef.current !== time) {
+            callback(elapsed);
+        }
+
+        // Only recurse if there is still time left
+        if (elapsed < duration) {
+            previousTimeRef.current = time;
+            requestRef.current = requestAnimationFrame(animate);
+        }
+    }
+
+    // Start the animation
+    useEffect(() => {
+        // Add a delay if necessary
+        const timeout = setTimeout(() => requestRef.current = requestAnimationFrame(animate), delay);
+        // Cleanup
+        return () => {
+            clearTimeout(timeout);
+            requestRef.current && cancelAnimationFrame(requestRef.current)
+        };
+    }, []);
+}`} />
+						</details>
+						<div class="w-full border-b-[1px] border-slate-300 dark:border-slate-700" />
+						<span class="text-lg font-medium py-4">Scrolling is hard</span>
+						<span class="pb-4">
+							Scrolling an SVG ViewBox is pretty hard - in this case especially, because of the arced messages. Scrolling them is not done by pushing them up as usual. 
+							They would need to adjust their radius and text length on each scroll as the arcs need to scroll towards the top-left corner while decreasing in length.
+							<br/><br/>
+							That's the reason the messages just scroll on their own and why you're not able to scroll using your mouse.
+						</span>
+						<div class="w-full border-b-[1px] border-slate-300 dark:border-slate-700" />
+						<span class="text-lg font-medium py-4">Math - the horror!</span>
+						<span class="pb-4">
+							When I coded this messenger as a mobile app, I pretty much just eyeballed everything. It looked a bit off, but I figured it was good enough.
+							<br/><br/>
+							This time, however, I calculated everything to the pixel using various formulas for the arcs.
+							<br/>
+							For example, I used the arc-length formula <span class="font-mono inline-block">l = θ × (π/180) × r</span> 
+							to calculate the offset caused by the line-caps of the arcs
+						</span>
+						<div>
+							<Code lang="js" theme="github-dark" code="endAngle = 180 - ((width + 2) / 2) / radius / (Math.PI / 180);" />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

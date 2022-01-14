@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Link from '../components/common/Link.astro';
 ---
 
-<BaseLayout title="AniApps" description="Ever wondered what Apps and Technology from Anime would look like in real life? AniApps features proofs of concept for various apps, websites and other technologies seen in anime, manga or japanese pop culture.">	
+<BaseLayout title="AniApps" description="Ever wondered what Apps and Technology from Anime would look like in the real world? AniApps features proofs of concept for various apps, websites and other technologies seen in anime, manga or japanese pop culture.">	
     <style>
         div:hover>.arrow {
             transform: translateX(100%);
@@ -13,29 +13,26 @@ import Link from '../components/common/Link.astro';
         <div class="mx-auto px-5 max-w-7xl min-h-full flex flex-col justify-between items-center">
             <div class="flex flex-col items-center">
                 <span class="font-bold text-3xl sm:text-4xl lg:text-5xl text-black dark:text-slate-100 text-center leading-tight">
-                    Ever wondered what Apps and Technology
-                    from Anime would look like in real life?           
+                    Ever wondered what Apps and Technology from Anime would look like in the real world?           
                 </span>
                 <span class="text-xl text-center pt-8 max-w-3xl">
-                    AniApps features proofs of concept for various apps, websites and other
-                    technologies seen in anime, manga or japanese pop culture.
+                    AniApps features proofs of concept for various apps, websites, and other technologies seen in anime, manga, or Japanese pop culture.
                 </span>
             </div>
             <div class="mt-10 px-0 md:px-32 lg:p-0 grid gap-20 grid-cols-1 lg:grid-cols-2 w-full">
                 <div class="bg-slate-100/50 dark:bg-slate-900/60 rounded-lg grid grid-cols-[35%_auto] xs:grid-cols-[25%_auto] md:grid-cols-[35%_auto] lg:grid-cols-[50%_auto]">         
-                    <img class="self-center rounded-lg" src="/assets/yuukiYuunaMessenger/messenger.webp" alt="Yuuki Yuuna Mesenger" height="100%" width="100%">                 
+                    <a href="/yuuki-yuuna-messenger">
+                        <img class="self-center rounded-lg" src="/assets/yuukiYuunaMessenger/messenger.webp" alt="Yuuki Yuuna Mesenger" height="100%" width="100%"> 
+                    </a>                
                     <div class="px-2 xs:px-4 py-2 flex flex-col justify-between items-start">
                         <div class="flex flex-col">
                             <Link className="font-semibold text-lg md:text-2xl" href="https://anilist.co/anime/20800/" target="_blank" rel="noopener noreferrer">
-                                Yuki Yuna is a Hero
+                                Yuuki Yuuna is a Hero
                             </Link>
                             <span class="text-sm xs:text-base md:text-lg font-medium">Text Messenger App</span>
                         </div>
-                         <span class="hidden xs:block text-sm sm:text-base">
-                            Yuna and her friends often communicate with this mobile app.<br/>            
-                        </span>
                         <span class="hidden xs:block text-sm sm:text-base">
-                            Want to be part of the hero club's conversations?<br/>               
+                            A fully interactive mobile app based on the app Yuuna and her friends use to communicate with each other.<br/>            
                         </span>
                         <div class="w-full">     
                             <div class="flex items-center">                 
@@ -53,7 +50,7 @@ import Link from '../components/common/Link.astro';
             </div>
             <div class="flex flex-col">
                 <span class="text-xl text-center mt-10 mb-1">
-                    Want to see something from your favorite anime made in real life?             
+                    Want to see something from your favorite anime made real?             
                 </span>
                 <span class="text-xl text-center mb-5">
                     Send me a message on 

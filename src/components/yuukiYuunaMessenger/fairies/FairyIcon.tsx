@@ -18,7 +18,7 @@ const FairyIcon: React.FC<{ fairyName: fairyNames; fairySettings: fairySettings;
                 style={{ background: fairySettings.bg, transform: active ? 'scale(1.1)' : undefined, border: active ? '4px solid white' : undefined }} onClick={() => setSelected(fairyName)}>
                 <img src={fairySettings.icon} alt={fairyName} width="80" height="80" />
             </div>
-            <span className="text-lg font-semibold text-outline pt-1" style={{ color: fairySettings.light }}>{fairySettings.name}</span>
+            <span className="text-lg font-semibold text-outline pt-1 drop-shadow-[4px_4px_0_rgba(0,0,0,0.25)]" style={{ color: fairySettings.light }}>{fairySettings.name}</span>
         </div>
     );
 };

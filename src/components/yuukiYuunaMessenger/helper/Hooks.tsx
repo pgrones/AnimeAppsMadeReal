@@ -18,12 +18,12 @@ export const useAnimationFrame = (duration: number, delay: number, callback: (de
         // ...to calculate the elapsed time
         const elapsed = time - startTimeRef.current;
 
-        // Do the animation if we have a new frame
+        // Do the animation if there is a new frame
         if (previousTimeRef.current !== time) {
             callback(elapsed);
         }
 
-        // Only recurse if we still haven't reached the duration of the animation
+        // Only recurse if there is still time left
         if (elapsed < duration) {
             previousTimeRef.current = time;
             requestRef.current = requestAnimationFrame(animate);

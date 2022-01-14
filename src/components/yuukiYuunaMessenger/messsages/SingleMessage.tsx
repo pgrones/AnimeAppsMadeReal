@@ -16,7 +16,7 @@ const SingleMessage: React.FC<{ index: number, last: boolean, text: string[], fa
     // Colors for each path
     const fairyGradient = fairyMap.get(fairy)?.gradient;
     // Position of the fairy
-    const fairyPos = fairyMap.get(fairy)?.pos; 
+    const fairyPos = fairyMap.get(fairy)?.pos;
     // Duration for the rotate animation
     const animationDuration = 300;
     // End coordinates of the line connecting the start of the arc with the fairy icon
@@ -51,9 +51,9 @@ const SingleMessage: React.FC<{ index: number, last: boolean, text: string[], fa
                         <stop offset="100%" stopColor={fairyGradient?.[1]} />
                     </linearGradient>
                 </defs>
-                {/* Arc container of the message */}
-                <path id={`msg${index}`} d={arc} fill="none" stroke="#fff" strokeWidth={width} strokeLinecap="round" className="drop-shadow-[4px_4px_0_rgba(0,0,0,0.25)]" />
                 {/* Border around the arc */}
+                <path id={`msg${index}`} d={arc} fill="none" stroke="#fff" strokeWidth={width} strokeLinecap="round" className="drop-shadow-[4px_4px_0_rgba(0,0,0,0.25)]" />
+                {/* Arc container of the message */}
                 <path d={arc} stroke={`url(#gradient${index})`} strokeWidth={width - 4} strokeLinecap="round" fill='none' />
                 {/* Circle at the start of the arc */}
                 <circle cx={arcStart[0]} cy={arcStart[1]} r={width / 2 - 1} fill={`url(#gradient${index})`} stroke="#fff" strokeWidth="2" />
