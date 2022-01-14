@@ -2,12 +2,12 @@
 
 ### Ever wondered what Apps and Technology from Anime would look like in real life?
 
-AniApps features proofs of concept for various apps, websites and other technologies seen in anime, manga or japanese pop culture
+AniApps features proofs of concept for various apps, websites, and other technologies seen in anime, manga, or Japanese pop culture
 #
 <img src="preview.png" />
 
 #
-Want to see something from your favorite anime made in real life?             
+Want to see something from your favorite anime made real?             
 
 Send me a message on 
 <a href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer">
