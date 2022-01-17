@@ -12,7 +12,7 @@ const Tabs: React.FC<{ tabs: string[] }> = ({ tabs }) => {
 
     return (
         <div className="relative w-full py-3 flex justify-between items-center">
-            <div style={{ transform: `translateX(calc(100% * ${active}))` }} className="transition-transform duration-300 absolute w-1/4 top-2 bottom-2 rounded-lg bg-slate-100/50 dark:bg-slate-900/60" />
+            <div style={{ transform: `translateX(calc(100% * ${active}))` }} className="transition-transform duration-300 absolute w-1/3 xs:w-1/4 top-2 bottom-2 rounded-lg bg-slate-100/50 dark:bg-slate-900/60" />
             {tabs.map((t, i) =>
                 <button
                     key={t}
@@ -20,7 +20,8 @@ const Tabs: React.FC<{ tabs: string[] }> = ({ tabs }) => {
                     className={`${i === active ?
                         "cursor-default text-transparent dark:text-transparent font-semibold scale-[1.05]" :
                         "text-slate-700 dark:text-slate-300 xs:font-medium"} 
-                        w-full whitespace-nowrap hover:text-transparent hover:dark:text-transparent hover:font-semibold hover:scale-[1.05] xs:text-xl 
+                        ${i > 2 ? "hidden xs:block": ""} 
+                        w-full whitespace-nowrap hover:text-transparent hover:dark:text-transparent hover:font-semibold hover:scale-[1.05] sm:text-xl 
                         bg-clip-text bg-gradient-to-br dark:from-pink-500 dark:to-violet-500 from-violet-500 to-blue-500`}
                 >{t}</button>
             )}

@@ -73,27 +73,29 @@ const YuukiYuunaMessenger = () => {
     }
 
     return (
-        <div className="relative aspect-[400/662] max-h-[calc(100vh_-_50px)] lg:max-h-[calc(100vh_-_80px)] rounded-none lg:rounded-lg bg-cover bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
-            <div className="absolute h-full w-full">
-                <Messages messages={messages} />
-            </div>
-            <div className="absolute bottom-10 h-2/5 w-full">
-                <div className="h-full max-w-full flex flex-row justify-between items-center px-2 overflow-hidden">
-                    {Array.from(fairyMap).map(v =>
-                        <FairyIcon key={v[0]} selected={selected} setSelected={(fairy: fairyNames) => { setSelected(fairy); inputRef.current?.focus(); }} fairyName={v[0]} fairySettings={v[1]} />
-                    )}
+        <div className="w-full xs:translate-x-1/2 lg:translate-x-0">
+            <div className="relative aspect-[400/662] xs:-translate-x-1/2 lg:translate-x-0 max-h-[calc(100vh_-_80px)] rounded-none xs:rounded-lg bg-cover bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
+                <div className="absolute h-full w-full">
+                    <Messages messages={messages} />
                 </div>
-            </div>
-            <div className="absolute bottom-3 w-full">
-                <div className="flex w-full justify-center">
-                    <input
-                        value={inputText} onChange={e => setInputText(e.target.value)} ref={inputRef} onKeyUp={e => e.key === 'Enter' && onSend()}
-                        style={{ background: fairyColor?.light, borderColor: fairyColor?.bg }} aria-label="text input"
-                        className="h-7 w-full mx-5 rounded-full border-[3px] pl-2 pr-5 outline-none text-black"
-                    />
-                    <div className="absolute right-5 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer hover:scale-[1.2] active:scale-100 transition-transform"
-                        style={{ background: fairyColor?.bg }} onClick={onSend}>
-                        <i className="text-slate-800 fas fa-paper-plane" ></i>
+                <div className="absolute bottom-10 h-2/5 w-full">
+                    <div className="h-full max-w-full flex flex-row justify-between items-center px-2 overflow-hidden">
+                        {Array.from(fairyMap).map(v =>
+                            <FairyIcon key={v[0]} selected={selected} setSelected={(fairy: fairyNames) => { setSelected(fairy); inputRef.current?.focus(); }} fairyName={v[0]} fairySettings={v[1]} />
+                        )}
+                    </div>
+                </div>
+                <div className="absolute bottom-3 w-full">
+                    <div className="flex w-full justify-center">
+                        <input
+                            value={inputText} onChange={e => setInputText(e.target.value)} ref={inputRef} onKeyUp={e => e.key === 'Enter' && onSend()}
+                            style={{ background: fairyColor?.light, borderColor: fairyColor?.bg }} aria-label="text input"
+                            className="h-7 w-full mx-5 rounded-full border-[3px] pl-2 pr-5 outline-none text-black"
+                        />
+                        <div className="absolute right-5 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer hover:scale-[1.2] active:scale-100 transition-transform"
+                            style={{ background: fairyColor?.bg }} onClick={onSend}>
+                            <i className="text-slate-800 fas fa-paper-plane" ></i>
+                        </div>
                     </div>
                 </div>
             </div>
