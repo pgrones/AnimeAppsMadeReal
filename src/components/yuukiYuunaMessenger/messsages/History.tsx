@@ -15,12 +15,12 @@ const History = () => {
             <path id="historyButton" d="M 66 179.2 A 190 190 0 0 0 179.8 64" fill="none" stroke="#86E3FE" strokeWidth="26" />
             {/* Text and arrow */}
             <text fill="#fff" cursor="pointer">
-                <textPath href="#historyButton" startOffset="8" alignmentBaseline='central' fontSize="20" fontFamily="'Font Awesome 5 Free'">
+                <textPath xlinkHref="#historyButton" startOffset="8" alignmentBaseline='central' fontSize="20" fontFamily="'Font Awesome 5 Free'">
                     &#xf35b;
                 </textPath>
             </text>
             <text fill="#fff" >
-                <textPath href="#historyButton" startOffset="34" alignmentBaseline='central' fontSize="14">
+                <textPath xlinkHref="#historyButton" startOffset="34" alignmentBaseline='central' fontSize="14">
                     履歴
                 </textPath>
             </text>

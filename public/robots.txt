@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /assets/
 Allow: /
 Allow: /assets/yuukiYuunaMessenger/messenger.webp
+Sitemap: https://www.aniapps.dev/sitemap.xml

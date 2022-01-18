@@ -3,13 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Link from '../components/common/Link.astro';
 ---
 
-<BaseLayout title="AniApps" description="Ever wondered what Apps and Technology from Anime would look like in the real world? AniApps features proofs of concept for various apps, websites and other technologies seen in anime, manga or japanese pop culture.">	
-    <style>
-        div:hover>.arrow {
-            transform: translateX(100%);
-        }
-    </style>
-    <div slot="content" class="relative pt-20 xs:pt-32 h-full overflow-auto">
+<BaseLayout title="AniApps" description="AniApps features proofs of concept for various apps, websites and other technologies seen in anime, manga or japanese pop culture.">	
+    <div slot="content" class="relative pt-20 xs:pt-32 h-full">
         <div class="mx-auto px-5 max-w-7xl min-h-full flex flex-col justify-between items-center">
             <div class="flex flex-col items-center">
                 <span class="font-bold text-3xl sm:text-4xl lg:text-5xl text-black dark:text-slate-100 text-center leading-tight">
@@ -39,7 +34,7 @@ import Link from '../components/common/Link.astro';
                                 <Link className="font-semibold text-xl md:text-2xl" href="/yuuki-yuuna-messenger">
                                     Check it out 
                                 </Link>
-                                <i class="arrow transition-transform flex-grow pl-1 xs:mr-6 font-semibold text-xl dark:text-violet-500 text-blue-500 fas fa-arrow-right"></i>
+                                <i class="arrow transition-transform pl-1 xs:mr-6 font-semibold text-xl dark:text-violet-500 text-blue-500 fas fa-arrow-right"></i>
                             </div>
                         </div>
                     </div>
@@ -61,7 +56,6 @@ import Link from '../components/common/Link.astro';
                     <a class="underline underline-offset-2" href="mailto:animeappsmadereal@gmail.com">
                         e-mail
                     </a>
-                    .
                 </span>
             </div>
         </div>

@@ -16,8 +16,8 @@ const AniListButton = () => {
     }, [])
 
     return (
-        <a href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer" title="Visit my profile on AniList" className="mr-3 cursor-pointer hover:scale-[1.2] active:scale-100 transition-transform">
-            <svg className="w-5 xs:w-7 h-5 xs:h-7" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+        <a href="https://anilist.co/user/Alzariel/" target="_blank" rel="noopener noreferrer" title="Visit my profile on AniList" className="mr-4 xs:mr-3 cursor-pointer xs:hover:scale-[1.2] xs:active:scale-100 xs:transition-transform">
+            <svg className="w-6 h-6 xs:w-7  xs:h-7" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                 <defs>
                     <linearGradient id="gradient">
                         <stop offset="0%" stopColor={dark ? "#ec4899" : "#8b5cf6"} />

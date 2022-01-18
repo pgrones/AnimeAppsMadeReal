@@ -53,5 +53,5 @@ export const fairyMap = new Map<fairyNames, any>([
     ['aobozu', { name: '東郷', icon: '/assets/yuukiYuunaMessenger/Aobozu.webp', pos: [118, 500], bg: "rgba(86, 214, 231, 1)", light: "rgba(170, 234, 242, 1)", gradient: ['#C1EEFA', '#3485F0'] }],
     ['kodama', { name: '樹', icon: '/assets/yuukiYuunaMessenger/Kodama.webp', pos: [198, 565], bg: "rgba(189, 231, 122, 1)", light: "rgba(222, 243, 188, 1)", gradient: ['#CCFCC5', '#71EA36'] }],
     ['gyuki', { name: '友奈', icon: '/assets/yuukiYuunaMessenger/Gyuki.webp', pos: [278, 470], bg: "rgba(235, 163, 164, 1)", light: "rgba(244, 209, 209, 1)", gradient: ['#FCCAF0', '#EF7ABB'] }],
-    ['yoshiteru', { name: '夏凛', icon: '/assets/yuukiYuunaMessenger/yoshiteru.webp', pos: [358, 520], bg: "rgba(200, 78, 77, 1)", light: "rgba(227, 166, 165, 1)", gradient: ['#FEC8C2', '#F03B2C'] }]
+    ['yoshiteru', { name: '夏凛', icon: '/assets/yuukiYuunaMessenger/Yoshiteru.webp', pos: [358, 520], bg: "rgba(200, 78, 77, 1)", light: "rgba(227, 166, 165, 1)", gradient: ['#FEC8C2', '#F03B2C'] }]
 ]);

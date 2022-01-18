@@ -73,8 +73,8 @@ const YuukiYuunaMessenger = () => {
     }
 
     return (
-        <div className="w-full xs:translate-x-1/2 lg:translate-x-0">
-            <div className="relative aspect-[400/662] xs:-translate-x-1/2 lg:translate-x-0 max-h-[calc(100vh_-_80px)] rounded-none xs:rounded-lg bg-cover bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
+        <div className="w-full">
+            <div className="relative aspect-[400/662] translate-x-[calc(50vw_-_50%)] lg:translate-x-0 max-h-[calc(100vh_-_80px)] rounded-none xs:rounded-lg bg-cover bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
                 <div className="absolute h-full w-full">
                     <Messages messages={messages} />
                 </div>
@@ -92,7 +92,7 @@ const YuukiYuunaMessenger = () => {
                             style={{ background: fairyColor?.light, borderColor: fairyColor?.bg }} aria-label="text input"
                             className="h-7 w-full mx-5 rounded-full border-[3px] pl-2 pr-5 outline-none text-black"
                         />
-                        <div className="absolute right-5 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer hover:scale-[1.2] active:scale-100 transition-transform"
+                        <div className="absolute right-5 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer xs:hover:scale-[1.2] xs:active:scale-100 xs:transition-transform"
                             style={{ background: fairyColor?.bg }} onClick={onSend}>
                             <i className="text-slate-800 fas fa-paper-plane" ></i>
                         </div>

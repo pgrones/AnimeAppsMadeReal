@@ -14,6 +14,10 @@ const {title, description} = Astro.props;
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    <script>
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
+    </script>
     <style>  
         /* Box shadow for the background picture to make the edges softer */
         .bg-img {
@@ -25,7 +29,7 @@ const {title, description} = Astro.props;
     </style>
     <slot name="head" />
 </head>
-<body class="font-['Inter'] bg-slate-100 dark:bg-slate-900 text-black dark:text-slate-300 h-screen overflow-hidden">	
+<body class="font-['Inter'] bg-slate-100 dark:bg-slate-900 text-black dark:text-slate-300 h-screen overflow-auto">	
 	<Header/>
     <main class="relative h-full">
         <div class="fixed h-full w-full">
@@ -33,5 +37,22 @@ const {title, description} = Astro.props;
         </div>  
 	    <slot name="content" />
     </main> 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";   
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgnWaBgOB9BcErEbDl5ktIkX9VcVsYhCk",
+            authDomain: "aniapps-40fe8.firebaseapp.com",
+            projectId: "aniapps-40fe8",
+            storageBucket: "aniapps-40fe8.appspot.com",
+            messagingSenderId: "267977278899",
+            appId: "1:267977278899:web:33e86d1b26c2742c13f7c6",
+            measurementId: "G-7XLE09J75T"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        getAnalytics(app);
+    </script>
 </body>
 </html>
