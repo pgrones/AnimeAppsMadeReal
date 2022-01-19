@@ -58,8 +58,8 @@ const SingleMessage: React.FC<{ index: number, last: boolean, text: string[], fa
                 {/* Circle at the start of the arc */}
                 <circle cx={arcStart[0]} cy={arcStart[1]} r={width / 2 - 1} fill={`url(#gradient${index})`} stroke="#fff" strokeWidth="2" />
                 {/* Text inside the arc */}
-                <text color="#446688" fontSize="12px" fontFamily="'Kiwi Maru'" className="text-outline-light">
-                    <textPath startOffset={width / 2 - 1 + 5} xlinkHref={`#msg${index}`}>
+                <text color="#446688" fontSize="12px" fontFamily="'Kiwi Maru'" paintOrder="stroke" stroke="#fff" strokeWidth="1.5">
+                    <textPath startOffset={width / 2 - 1 + 5} href={`#msg${index}`}>
                         <tspan x="0" alignmentBaseline={lines > 1 ? "before-edge" : "central"} dy={lines > 1 ? -(width / 2) + 4 : -1} >{text[0]}</tspan>
                         {text.length > 1 && text.slice(1).map((v, i) => <tspan key={index + '-' + i} x="0" alignmentBaseline="before-edge" dy="1em">{v}</tspan>)}
                     </textPath>
