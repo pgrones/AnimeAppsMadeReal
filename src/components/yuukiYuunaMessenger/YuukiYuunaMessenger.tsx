@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { fairies, fairyMap, fairyNames, messages, splitString } from './helper/Helper';
-import Messages from './messsages/Messages';
-import defaultMessages from './helper/defaultMessages.json';
 import FairyIcon from './fairies/FairyIcon';
+import { initDB, onNewMessage, onUserCountChanged } from './helper/FirebaseHelper';
+import { fairies, fairyMap, fairyNames, Messages as IMessages, send } from './helper/Helper';
+import Messages from './messages/Messages';
 
 const YuukiYuunaMessenger = () => {
     // Selected fairy - can be changed by clicking on a fairy icon
@@ -11,10 +11,10 @@ const YuukiYuunaMessenger = () => {
     const [inputText, setInputText] = useState('');
     // Flag indiciating wether the bottom is reached or not
     const [scroll, setScroll] = useState(false);
-    // Index for the messages since the key should always be same even if a messages is removed in order to prevent rerenders
-    const [index, setIndex] = useState(5);
     // Messages stack
-    const [messages, setMessages] = useState<messages>(defaultMessages as messages);
+    const [messages, setMessages] = useState<IMessages>({});
+    // User Count
+    const [userCount, setUserCount] = useState<number>();
     // Ref to the input field
     const inputRef = useRef<HTMLInputElement>(null);
     // Color for the input field
@@ -23,60 +23,23 @@ const YuukiYuunaMessenger = () => {
     useEffect(() => {
         // Assign a random fairy on mount
         setSelected(fairies[Math.floor(Math.random() * 5)]);
+        (async () => {
+            await initDB();
+            // Listen to new messages
+            onNewMessage(setMessages);
+            // Listen to currently online users
+            onUserCountChanged(setUserCount);
+        })();
     }, [])
 
-    const onSend = () => {
-        if (inputText.trim()) {
-            const copy = [...messages];
-            // Calculate the width of all previous messages combined
-            let prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
-            // Split the inputText into lines
-            let lines = splitString(inputText, (/^[a-z\s\d]*$/i.test(inputText) ? 35 : 18) + copy.length * 2 + (copy.length % 2));
-            // Remove all empty lines at the beginning...
-            while (lines[0]?.trim() === '') lines.shift();
-            // ...and end
-            while (lines[-1]?.trim() === '') lines.pop();
-            // Calculate the width including the new message
-            let width = prevWidth + 9.5 + 14 * lines.length;
-
-            // Scroll if there are too many messages or a message that's too long
-            // or once the bottom is reached since any new message overflows at this point
-            if (scroll || width > 280) {
-                setScroll(true);
-
-                while (width > 280) {
-                    // If there aren't any old messages left
-                    if (!copy.length) {
-                        // Remove the first line of the new message and all following empty lines
-                        lines.shift();
-                        while (!lines[0].trim()) lines.shift();
-                        // At this point there are no previous messages left
-                        prevWidth = 0;
-                    } else {
-                        // If there are old messages left, remove the oldest
-                        const removed = copy.shift();
-                        // Offset the other messages by the removed one 
-                        copy.forEach(c => c.prevWidth -= removed?.prevWidth ?? 0);
-                        prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
-                    }
-                    // Calculate the new width after messages or lines have been removed
-                    width = prevWidth + 9.5 + 14 * lines.length;
-                }
-            }
-            // Push the new message onto the stack
-            copy.push({ index, text: lines, fairy: selected, lines: lines.length, prevWidth });
-            // Update the states
-            setMessages(copy);
-            setInputText('');
-            setIndex(prev => prev + 1);
-        }
-    }
+    const onSend = () => { setInputText(''); send(inputText, selected, messages, scroll, setScroll); };
 
     return (
         <div className="w-full">
             <div className="relative aspect-[400/662] translate-x-[calc(50vw_-_50%)] lg:translate-x-0 max-h-[calc(100vh_-_80px)] rounded-none xs:rounded-lg bg-cover bg-no-repeat bg-[url(/assets/yuukiYuunaMessenger/background.webp)]">
+                <div className="absolute top-0 right-0 z-10 py-1 px-2 rounded-bl-lg bg-slate-100/90 dark:bg-slate-900/90 text-sm">Currently online: {userCount}</div>
                 <div className="absolute h-full w-full">
-                    <Messages messages={messages} />
+                    {messages && <Messages messages={messages} />}
                 </div>
                 <div className="absolute bottom-10 h-2/5 w-full">
                     <div className="h-full max-w-full flex flex-row justify-between items-center px-2 overflow-hidden">

@@ -6,7 +6,7 @@ const Tabs: React.FC<{ tabs: string[] }> = ({ tabs }) => {
     useEffect(() => {
         for (let i = 0; i < tabs.length; i++) {
             const tab = document.getElementById(`tab${i}`);
-            if (tab) tab.style.transform = i === active ? `translateX(calc(-100% * ${i}))` : active > i ? `translateX(calc(-100% * ${active}))` : 'unset';
+            if (tab) tab.style.transform = i === active ? `translateX(calc(-100% * ${i}))` : active > i ? `translateX(calc(-100% * ${active} - 1px))` : 'unset';
         }
     }, [active])
 

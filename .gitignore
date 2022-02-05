@@ -20,3 +20,7 @@ yarn-error.log*
 # firebase
 .firebaserc
 .firebase/
+defaultData
+database-debug.log
+ui-debug.log
+firebase-debug.log

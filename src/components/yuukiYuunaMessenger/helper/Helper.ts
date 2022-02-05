@@ -1,3 +1,5 @@
+import { addMessage } from "./FirebaseHelper";
+
 // Helper function to make cartesian coordinates out of polar coordinates
 const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
     const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
@@ -8,7 +10,7 @@ const polarToCartesian = (centerX: number, centerY: number, radius: number, angl
     };
 }
 
-// helper function to draw an arc via svg using angles
+// Helper function to draw an arc via svg using angles
 export const describeArc = (x: number, y: number, radius: number, startAngle: number, endAngle: number) => {
     const start = polarToCartesian(x, y, radius, endAngle);
     const end = polarToCartesian(x, y, radius, startAngle);
@@ -43,9 +45,82 @@ export const splitString = (str: string, maxLength: number) => {
     return strs;
 }
 
+export const send = (inputText: string, fairy: fairyNames, messages: Messages, scroll: boolean, setScroll: Function) => {
+    if (inputText.trim()) {
+        // Keys for removed messages
+        const removedMessageKeys: string[] = [];
+        // Create an array out of the current messages, including the db key of the message
+        const copy: singleMessageWithKey[] = [];
+        for (const key in messages) {
+            if (Object.prototype.hasOwnProperty.call(messages, key)) {
+                const message = messages[key];
+                copy.push({ key, ...message });
+            }
+        }
+
+        // Calculate the width of all previous messages combined
+        let prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
+        // Split the inputText into lines
+        let lines = splitString(inputText, (/^[a-z\s\d]*$/i.test(inputText) ? 35 : 18) + copy.length * 2 + (copy.length % 2));
+        // Remove all empty lines at the beginning...
+        while (lines[0]?.trim() === '') lines.shift();
+        // ...and end
+        while (lines[-1]?.trim() === '') lines.pop();
+        // Calculate the width including the new message
+        let width = prevWidth + 9.5 + 14 * lines.length;
+
+        // Scroll if there are too many messages or a message that's too long
+        // or once the bottom is reached since any new message overflows at this point
+        if (scroll || width > 280) {
+            setScroll(true);
+
+            // As long as a messages overflows
+            while (width > 270) {
+                // If there aren't any old messages left
+                if (!copy.length) {
+                    // Remove the first line of the new message and all following empty lines
+                    lines.shift();
+                    while (!lines[0].trim()) lines.shift();
+                    // At this point there are no previous messages left
+                    prevWidth = 0;
+                } else {
+                    // If there are old messages left, remove the oldest
+                    const removed = copy.shift();
+                    removedMessageKeys.push(removed!.key!);
+                    // Offset the other messages by the first one's width
+                    const offset = copy[0].prevWidth;
+                    copy.forEach(c => c.prevWidth -= offset);
+                    prevWidth = copy.reduce((prev, curr) => prev + 9.5 + 14 * curr.lines, 0);
+                }
+                // Calculate the new width after messages or lines have been removed
+                width = prevWidth + 9.5 + 14 * lines.length;
+            }
+        }
+
+        let updatedMessages: Messages = {};
+        // Get the updated messages from the copy
+        if (removedMessageKeys.length) {
+            updatedMessages = { ...messages };
+            for (const m of copy) {
+                const key = m.key;
+                delete m.key;
+                updatedMessages[key!] = m;
+            }
+        }
+
+        // Delete all removed messages
+        for (const removedKey of removedMessageKeys) {
+            delete updatedMessages[removedKey];
+        }
+
+        // Add the new message as well as all updates to the database
+        addMessage(updatedMessages, removedMessageKeys, { timestamp: {}, text: lines, fairy, lines: lines.length, prevWidth });
+    }
+}
+
+
 // Types and constants
 export type fairyNames = 'inugami' | 'aobozu' | 'kodama' | 'gyuki' | 'yoshiteru';
-export type messages = { index: number, text: string[], fairy: fairyNames, lines: number, prevWidth: number }[];
 export const fairies: ['inugami', 'aobozu', 'kodama', 'gyuki', 'yoshiteru'] = ['inugami', 'aobozu', 'kodama', 'gyuki', 'yoshiteru'];
 export type fairySettings = { name: string, icon: string, bg: string, light: string, gradient: string[], pos: [number, number] };
 export const fairyMap = new Map<fairyNames, any>([
@@ -55,3 +130,19 @@ export const fairyMap = new Map<fairyNames, any>([
     ['gyuki', { name: '友奈', icon: '/assets/yuukiYuunaMessenger/Gyuki.webp', pos: [278, 470], bg: "rgba(235, 163, 164, 1)", light: "rgba(244, 209, 209, 1)", gradient: ['#FCCAF0', '#EF7ABB'] }],
     ['yoshiteru', { name: '夏凛', icon: '/assets/yuukiYuunaMessenger/Yoshiteru.webp', pos: [358, 520], bg: "rgba(200, 78, 77, 1)", light: "rgba(227, 166, 165, 1)", gradient: ['#FEC8C2', '#F03B2C'] }]
 ]);
+
+export interface Messages {
+    [key: string]: singleMessage;
+}
+
+export interface singleMessage {
+    fairy: fairyNames;
+    timestamp: number | object;
+    lines: number;
+    prevWidth: number;
+    text: string[];
+}
+
+export interface singleMessageWithKey extends singleMessage {
+    key?: string;
+}

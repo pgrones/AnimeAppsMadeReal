@@ -15,7 +15,8 @@ const {title, description} = Astro.props;
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
     <script>
-        var viewport = document.querySelector("meta[name=viewport]");
+        // vh units behave strangely on android, so it's overwritten with window.innerHeight
+        const viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
     </script>
     <style>  
