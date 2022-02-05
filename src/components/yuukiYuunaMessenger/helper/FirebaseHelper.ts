@@ -19,12 +19,12 @@ let db: Database;
 export const initDB = async () => {
     app ||= initializeApp(firebaseConfig);
     await signInAnonymously(getAuth(app));
-    db ||= getDatabase(app);
+    db ||= getDatabase(app, 'https://aniapps-40fe8-default-rtdb.europe-west1.firebasedatabase.app');
 
-    if (location.hostname === "localhost") {
-        // Point to the RTDB emulator running on localhost
-        connectDatabaseEmulator(db, "localhost", 9000);
-    }
+    // if (location.hostname === "localhost") {
+    //     // Point to the RTDB emulator running on localhost
+    //     connectDatabaseEmulator(db, "localhost", 9000);
+    // }
 
     // Increment the user count
     set(ref(db, 'users'), { count: increment(1) });
