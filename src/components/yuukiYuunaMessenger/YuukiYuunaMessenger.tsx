@@ -53,7 +53,7 @@ const YuukiYuunaMessenger = () => {
                         <input
                             value={inputText} onChange={e => setInputText(e.target.value)} ref={inputRef} onKeyUp={e => e.key === 'Enter' && onSend()}
                             style={{ background: fairyColor?.light, borderColor: fairyColor?.bg }} aria-label="text input"
-                            className="h-7 w-full mx-5 rounded-full border-[3px] pl-2 pr-5 outline-none text-black"
+                            className="h-7 w-full mx-5 rounded-full border-[3px] pl-2 pr-8 outline-none text-black"
                         />
                         <div className="absolute right-5 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer xs:hover:scale-[1.2] xs:active:scale-100 xs:transition-transform"
                             style={{ background: fairyColor?.bg }} onClick={onSend}>

@@ -57,8 +57,8 @@ const SingleMessage: React.FC<{ id: number, last: boolean, text: string[], fairy
                 {/* Text inside the arc */}
                 <text color="#446688" fontSize="12px" fontFamily="'Kiwi Maru'" paintOrder="stroke" stroke="#fff" strokeWidth="1.5">
                     <textPath startOffset={width / 2 - 1 + 5} href={`#msg${id}`}>
-                        <tspan x="0" alignmentBaseline={lines > 1 ? "before-edge" : "central"} dy={lines > 1 ? -(width / 2) + 4 : -1} >{text[0]}</tspan>
-                        {text.length > 1 && text.slice(1).map((v, i) => <tspan key={id + '-' + i} x="0" alignmentBaseline="before-edge" dy="1em">{v}</tspan>)}
+                        <tspan x="0" alignmentBaseline={lines > 1 ? "hanging" : "central"} dominantBaseline={lines > 1 ? "hanging" : "central"} dy={lines > 1 ? -(width / 2) + 6 : -1} >{text[0]}</tspan>
+                        {text.length > 1 && text.slice(1).map((v, i) => <tspan key={id + '-' + i} x="0" alignmentBaseline="hanging" dominantBaseline="hanging" dy="1em">{v}</tspan>)}
                     </textPath>
                 </text>
             </g>

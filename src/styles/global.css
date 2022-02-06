@@ -5,6 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(59, 130, 246, .5) transparent;
+}
+
+.dark * {
+    scrollbar-color: rgba(188, 82, 200, .5) transparent;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -16,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(59, 130, 246, 1); 
+    background: rgba(59, 130, 246, 1);
 }
 
 .dark ::-webkit-scrollbar-thumb {
